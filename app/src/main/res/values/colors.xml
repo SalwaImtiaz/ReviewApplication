@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#F50417</color>
+    <color name="colorPrimaryDark">#C90000</color>
+    <color name="colorAccent">#F50417</color>
+
+    <!-- Color resources for the Reviews -->
+    <color name="review_customer_name">#333333</color>
+
+    <!-- Color resources for the Rating Bar -->
+    <color name="starsgray">#C3C3C3</color>
+    <color name="golden">#FFC90E</color>
+
+
+    <color name="textBackground">#D0D2C0</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#040504</color>
+    <color name="red">#ff3300</color>
+</resources>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="15dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:background="@android:color/white"
+    tools:context="com.intellisense.review.activities.Review_one">
+
+
+    <TextView
+
+        android:id="@+id/question"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:background="@color/textBackground"
+        android:fontFamily="cursive"
+        android:lineSpacingExtra="8sp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:layout_marginTop="60sp"
+        android:textSize="23dp" />
+
+    <LinearLayout
+        android:paddingTop="50dp"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:orientation="horizontal"
+        android:padding="5dp"
+        android:layout_marginTop="60sp">
+
+        <ImageView
+            android:id="@+id/one"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/heart_face"/>
+
+        <ImageView
+            android:id="@+id/two"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/happy_face" />
+        <ImageView
+            android:id="@+id/three"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/neutral_face"
+            android:contentDescription="rate3"/>
+        <ImageView
+            android:id="@+id/four"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/sad_face"
+            android:contentDescription="rate4"/>
+         <ImageView
+             android:id="@+id/five"
+             android:layout_width="70dp"
+             android:layout_height="70dp"
+             android:src="@drawable/angry_face"
+             android:contentDescription="@string/rate5"/>
+
+
+
+</LinearLayout>
+
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Question Type"
+        android:inputType="number"
+        android:id="@+id/questionType"
+        android:visibility="gone"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/questionText"
+        android:visibility="gone"
+        />
+
+    <Button
+        android:id="@+id/btnsave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:onClick="saving"
+        android:visibility="gone"
+
+        />
+
+    <TextView
+        android:id="@+id/Servers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+    />
+    <TextView
+        android:id="@+id/Items"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        />
+</LinearLayout>

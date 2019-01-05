@@ -1,0 +1,73 @@
+<resources>
+    <string name="app_name">Review</string>
+
+    <!-- For the Admin Login Activity -->
+    <string name="admin">Admin</string>
+
+    <string name="email">Email</string>
+
+    <string name="password">Password</string>
+
+    <string name="login">Login</string>
+
+    <string name="create_account_underline"><u>Create Account</u></string>
+
+    <!-- For the Admin Create Account Activity -->
+    <string name="create_account">Create Account</string>
+
+    <string name="Username">Username</string>
+
+    <string name="type">Type</string>
+
+    <string name="super_admin">Super Admin</string>
+
+    <string name="normal_admin">Normal Admin</string>
+
+    <!-- For the Admin Reviews Activity -->
+    <string name="reviews">Reviews</string>
+
+    <!-- For the Detail Review Activity -->
+    <string name="feedback">Feedback</string>
+
+    <string name="services_offered">Services Offered</string>
+
+    <string name="server">Server</string>
+
+    <string name="customer_info">Customer Info</string>
+
+    <string name="contact_no">Contact No.</string>
+
+    <string name="birthday">Birthday</string>
+
+    <string name="anniversary">Anniversary</string>
+
+    <string name="not_available">Not Available</string>
+
+    <string name="suggestion_for_server">Suggestion for Server</string>
+
+    <!-- For the menu to display on review activity -->
+    <string name="sync">Sync With Server</string>
+
+    <string name="logout">Logout</string>
+
+    <string name="call">Call</string>
+    <!--Salwa-->
+
+    <string name="hint_word">Word…</string>
+    <string name="button_save">Save</string>
+    <string name="empty_not_saved">Word not saved because it is empty.</string>
+    <string name="name">Name</string>
+    <string name="date_of_birth">Date Of Birth</string>
+    <string name="contact">Contact</string>
+    <string name="Personal_Information">Personal Information</string>
+    <string name="next">Next</string>
+    <string name="item_served">Item Served</string>
+    <string name="suggestions">Suggestions</string>
+    <string name="table_number">Table Number</string>
+    <string name="thankyou">Thankyou !</string>
+    <string name="done">Done</string>
+    <string name="rate5">rate5</string>
+    <string name="customer">Customer</string>
+    <string name="review">Review</string>
+
+</resources>

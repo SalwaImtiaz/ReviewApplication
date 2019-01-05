@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    tools:context="com.intellisense.review.activities.DetailReviewActivity">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    android:padding="24dp">
+
+    <RatingBar
+        android:id="@+id/activity_detail_review_rating_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:numStars="5"
+        android:stepSize="0.1"
+        android:theme="@style/RatingBar"
+        android:isIndicator="true"/>
+
+    <TextView
+        android:id="@+id/activity_detail_review_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right" />
+
+    <TextView
+        android:id="@+id/activity_detail_review_suggestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:id="@+id/activity_detail_server_suggestion_heading"
+        style="@style/ReviewDetailLabels"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/suggestion_for_server" />
+
+    <TextView
+        android:id="@+id/activity_detail_review_suggestion_server"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:paddingLeft="16dp"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        style="@style/ReviewDetailLabels"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/feedback" />
+
+    <LinearLayout
+        android:id="@+id/review_questions_linear_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="16dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+
+    </LinearLayout>
+
+    <TextView
+        style="@style/ReviewDetailLabels"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/services_offered" />
+
+    <LinearLayout
+        android:id="@+id/services_offered_linear_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"/>
+
+    <TextView
+        style="@style/ReviewDetailLabels"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/server" />
+
+    <TextView
+        android:id="@+id/activity_detail_waiter_name_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginRight="36dp"
+
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:gravity="center_horizontal"
+        android:fontFamily="sans-serif-light"
+        android:textColor="@color/colorPrimary"/>
+
+    <TextView
+        style="@style/ReviewDetailLabels"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/customer_info" />
+
+    <LinearLayout
+        android:id="@+id/activity_detail_review_contact_no_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:paddingRight="8dp"
+        android:paddingLeft="16dp">
+
+        <TextView
+            style="@style/CustomerInfoCategoryLabels"
+            android:text="@string/contact_no" />
+
+        <TextView
+            android:id="@+id/activity_detail_review_contact_no"
+            style="@style/CustomerInfoCategoryValues" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/activity_detail_review_email_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:paddingRight="8dp"
+        android:paddingLeft="16dp">
+
+        <TextView
+            style="@style/CustomerInfoCategoryLabels"
+            android:text="@string/email" />
+
+        <TextView
+            android:id="@+id/activity_detail_review_email"
+            style="@style/CustomerInfoCategoryValues" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/activity_detail_review_birthday_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:paddingRight="8dp"
+        android:paddingLeft="16dp">
+
+        <TextView
+            style="@style/CustomerInfoCategoryLabels"
+            android:text="@string/birthday" />
+
+        <TextView
+            android:id="@+id/activity_detail_review_birthday"
+            style="@style/CustomerInfoCategoryValues" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/activity_detail_review_anniversary_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:paddingRight="8dp"
+        android:paddingLeft="16dp">
+
+        <TextView
+            style="@style/CustomerInfoCategoryLabels"
+            android:text="@string/anniversary" />
+
+        <TextView
+            android:id="@+id/activity_detail_review_anniversary"
+            style="@style/CustomerInfoCategoryValues" />
+
+    </LinearLayout>
+
+</LinearLayout>
+
+</ScrollView>

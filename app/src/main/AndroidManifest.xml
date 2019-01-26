@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -49,8 +50,17 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.ReviewsActivity" />
         </activity>
-        <activity android:name=".activities.More_Info_Activity"            />
-        <activity android:name=".activities.Personal_Info_activity"/>
+        <activity android:name=".activities.More_Info_Activity"
+            android:noHistory="true" android:label="@string/review"
+            android:parentActivityName=".activities.Personal_Info_activity">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".activities.Personal_Info_activity" />
+        </activity>
+        <activity android:name=".activities.Personal_Info_activity"
+            android:noHistory="true" android:label="@string/review"
+            android:parentActivityName=".activities.Review_one">
+            </activity>
         <activity android:name=".activities.Review_one"
             android:label="@string/review"
             android:parentActivityName=".MainActivity">

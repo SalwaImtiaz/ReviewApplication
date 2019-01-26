@@ -21,18 +21,31 @@
         android:textSize="24sp"
         android:textStyle="bold" />
 
-
-    <TextView
-
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/name"/>
+        android:orientation="horizontal">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/name" />
+
+        <TextView
+            android:id="@+id/nameerror"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:text="*"
+            android:textColor="@color/red"
+            android:visibility="invisible"/>
+    </LinearLayout>
     <EditText
         android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="text|textPersonName" />
+        android:inputType="text|textPersonName"
+        android:hint="@string/hintName"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -42,7 +55,8 @@
         android:id="@+id/contact"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="number|phone" />
+        android:inputType="number|phone"
+        android:hint="@string/hint_number"/>
     <TextView
               android:text="@string/email"
         android:layout_width="wrap_content"
@@ -52,30 +66,68 @@
         android:id="@+id/email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textEmailAddress" />
-    <TextView
-        android:text="@string/date_of_birth"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:inputType="textEmailAddress"
+        android:hint="@string/hint_email"/>
 
-    <EditText
-        android:id="@+id/DOB"
-        android:layout_width="112dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-         />
+        android:orientation="horizontal">
 
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/date_of_birth" />
+
+        <TextView
+            android:id="@+id/DOB"
+            android:layout_width="112dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="textEnd"
+            android:textStyle="bold"
+            android:textColor="@color/red"
+            android:paddingLeft="20dp"/>
+        <ImageView
+            android:id="@+id/btnbirth"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+           android:layout_gravity="right"
+            android:src="@drawable/date_picker"
+            />
+
+
+    </LinearLayout>
+<!--<Button-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content" />-->
+<!--</LinearLayout>-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
     <TextView
         android:text="@string/anniversary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <EditText
-        android:id="@+id/anniversary"
-        android:layout_width="110dp"
-        android:layout_height="wrap_content"
-         />
-
-
+        <TextView
+            android:id="@+id/anniversary"
+            android:layout_width="118dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="22dp"
+            android:textAlignment="textEnd"
+            android:textColor="@color/red"
+            android:textStyle="bold" />
+    <ImageView
+        android:id="@+id/btnanniversary"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
+       android:layout_gravity="right"
+        android:src="@drawable/date_picker" />
+    </LinearLayout>
     <Button
         android:id="@+id/next"
         android:layout_width="match_parent"
@@ -90,8 +142,12 @@
 
     <TextView
         android:id="@+id/error"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textAlignment="center"
         android:textColor="@color/red"
-        android:visibility="invisible"/>
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:visibility="invisible" />
 </LinearLayout>

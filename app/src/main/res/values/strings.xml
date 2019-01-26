@@ -2,7 +2,6 @@
     <string name="app_name">Review</string>
 
     <!-- For the Admin Login Activity -->
-    <string name="admin">Admin</string>
 
     <string name="email">Email</string>
 
@@ -53,7 +52,6 @@
     <string name="call">Call</string>
     <!--Salwa-->
 
-    <string name="hint_word">Word…</string>
     <string name="button_save">Save</string>
     <string name="empty_not_saved">Word not saved because it is empty.</string>
     <string name="name">Name</string>
@@ -69,5 +67,9 @@
     <string name="rate5">rate5</string>
     <string name="customer">Customer</string>
     <string name="review">Review</string>
+    <string name="hintName">David</string>
+    <string name="hint_number">03**-*******</string>
+    <string name="hint_email">david@hotmail.com</string>
+    <string name="admin">Admin</string>
 
 </resources>

@@ -210,22 +210,22 @@ public class DetailReviewActivity extends AppCompatActivity {
             switch (userResponse.getResponse())
             {
                 case 1:
-                    imageResource = R.drawable.angry_face;
+                    imageResource = R.drawable.one;
                     break;
                 case 2:
-                    imageResource = R.drawable.sad_face;
+                    imageResource = R.drawable.two;
                     break;
                 case 3:
-                    imageResource = R.drawable.neutral_face;
+                    imageResource = R.drawable.thumbsup;
                     break;
                 case 4:
-                    imageResource = R.drawable.happy_face;
+                    imageResource = R.drawable.four;
                     break;
                 case 5:
-                    imageResource = R.drawable.heart_face;
+                    imageResource = R.drawable.five;
                     break;
                 default:
-                    imageResource = R.drawable.angry_face;
+                    imageResource = R.drawable.five;
             }
             emojiImageView.setImageResource(imageResource);
 

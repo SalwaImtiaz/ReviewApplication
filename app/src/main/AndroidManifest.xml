@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -40,7 +41,7 @@
         <!-- Activity which represents list of reviews -->
         <activity android:name=".activities.ReviewsActivity"
             android:launchMode="singleTop"
-            android:label="@string/reviews">
+            android:label="@string/reviews"  android:noHistory= "true">
         </activity>
 
         <activity android:name=".activities.DetailReviewActivity"
@@ -49,10 +50,23 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.ReviewsActivity" />
         </activity>
-        <activity android:name=".activities.More_Info_Activity"            />
-        <activity android:name=".activities.Personal_Info_activity"/>
+
+        <activity android:name=".activities.More_Info_Activity"
+           android:label="@string/review"  android:noHistory= "true"
+            android:parentActivityName=".activities.Personal_Info_activity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.Personal_Info_activity" />
+        </activity>
+
+        <activity android:name=".activities.Personal_Info_activity"
+
+           android:label="@string/review" >
+        </activity>
+
         <activity android:name=".activities.Review_one"
             android:label="@string/review"
+            android:noHistory= "true"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

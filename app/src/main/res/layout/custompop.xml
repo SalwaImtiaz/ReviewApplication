@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="350dp"
+    android:layout_height="375dp"
+    android:background="@color/white"
+    android:padding="10dp"
+    android:orientation="vertical"
+    android:layout_gravity="center">
+<TextView
+    android:id="@+id/txtclose"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="X"
+    android:foregroundGravity="right"
+    android:textStyle="bold"
+    android:gravity="right"/>
+
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="wrap_content"
+        android:layout_height="319dp"
+        android:src="@drawable/thanks"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="28dp" />
+
+    <Button
+        android:id="@+id/btnMove"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/rounded_corner"
+        android:backgroundTint="@color/white"
+        android:fontFamily="casual"
+        android:text="Welcome"
+        android:textStyle="bold" />
+</LinearLayout>

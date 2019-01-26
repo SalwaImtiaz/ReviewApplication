@@ -6,70 +6,121 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:paddingTop="15dp"
-    android:paddingLeft="10dp"
-    android:paddingRight="10dp"
     android:background="@android:color/white"
+    android:id="@+id/linearlayoutID"
     tools:context="com.intellisense.review.activities.Review_one">
 
 
+        <!--<Button-->
+            <!--android:id="@+id/btnLess"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="less"-->
+            <!--android:onClick="Less"-->
+            <!--android:visibility="invisible"/>-->
     <TextView
+        android:id="@+id/quesNo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:hint="test"
+        android:textAlignment="center"
+        android:backgroundTint="@color/starsgray"
+        android:textColor="@color/red"
+        android:background="@drawable/rounded_corner"/>
 
-        android:id="@+id/question"
+
+    <RelativeLayout
+        android:id="@+id/linearlayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
-        android:background="@color/textBackground"
-        android:fontFamily="cursive"
-        android:lineSpacingExtra="8sp"
-        android:paddingTop="20dp"
-        android:paddingBottom="20dp"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:layout_marginTop="60sp"
-        android:textSize="23dp" />
+        android:layout_gravity="center_horizontal"
+       >
+
+        <TextView
+
+            android:id="@+id/question"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:fontFamily="cursive"
+            android:lineSpacingExtra="8sp"
+            android:paddingBottom="20dp"
+            android:paddingTop="20dp"
+            android:paddingLeft="10dp"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/red"
+            android:textSize="27dp"
+            android:hint="how was the quality of food?"
+            android:layout_gravity="left"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnMore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/question"
+            android:layout_gravity="right"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/right"
+            android:backgroundTint="@color/starsgray"
+            android:lineSpacingExtra="8sp"
+            android:onClick="More"
+            android:paddingBottom="20dp"
+            android:paddingTop="20dp"
+            android:textColor="@color/black"
+            android:textSize="10dp" />
+    </RelativeLayout>
 
     <LinearLayout
-        android:paddingTop="50dp"
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content"
-         android:orientation="horizontal"
-        android:padding="5dp"
-        android:layout_marginTop="60sp">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60sp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="2dp"
+        android:paddingTop="50dp">
 
-        <ImageView
-            android:id="@+id/one"
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/five"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:src="@drawable/heart_face"/>
 
-        <ImageView
-            android:id="@+id/two"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:src="@drawable/happy_face" />
-        <ImageView
-            android:id="@+id/three"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:src="@drawable/neutral_face"
-            android:contentDescription="rate3"/>
-        <ImageView
+            android:background="@color/white"
+            android:src="@drawable/five" />
+
+        <pl.droidsonroids.gif.GifImageView
             android:id="@+id/four"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:src="@drawable/sad_face"
-            android:contentDescription="rate4"/>
-         <ImageView
-             android:id="@+id/five"
-             android:layout_width="70dp"
-             android:layout_height="70dp"
-             android:src="@drawable/angry_face"
-             android:contentDescription="@string/rate5"/>
+            android:background="@color/white"
+            android:src="@drawable/four" />
 
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/three"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@color/white"
+            android:paddingTop="10dp"
+            android:src="@drawable/thumbsup" />
 
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/two"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@color/white"
+            android:src="@drawable/two" />
 
-</LinearLayout>
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/one"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@color/white"
+            android:src="@drawable/one" />
 
+    </LinearLayout>
 
     <EditText
         android:layout_width="wrap_content"

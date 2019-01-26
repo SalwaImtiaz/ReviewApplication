@@ -1,13 +1,18 @@
 package com.intellisense.review.activities;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.intellisense.review.R;
@@ -19,8 +24,11 @@ import com.intellisense.review.db_classes.Review_Questions;
 import com.intellisense.review.db_classes.Server;
 import com.intellisense.review.db_classes.SessionManager;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -28,16 +36,16 @@ import java.util.Locale;
 public class Review_one extends AppCompatActivity {
     SessionManager session;
 EditText questionText,questionType;
-TextView question,servers,items;
-Button btn_save;
-int questCount=0;
+TextView question,servers,items,quesNo;
+Button btn_save,btnMore,btnLess;
+
     ImageView one,two, three,four,five;
     final int ratings [] = new int[10];
     private AppDatabase mDb;
     int quizCounter = 1 ,   selection =0;
-
+    Animation animation ;
     int ratingCounter = 0;
-
+    LinearLayout linearlayoutID;
     private List<Review_Questions> ques;
     private String quizes;
     private int TotalQuiz;
@@ -47,26 +55,54 @@ int questCount=0;
         super.onCreate ( savedInstanceState );
         setContentView ( R.layout.activity_review_one );
         initViews();
+
         mDb = AppDatabase.getInstance ( getApplicationContext () );
         session = new SessionManager (getApplicationContext ());
+
+//        btnMore.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                quizCounter++ ;
+//                fetchData ();
+//            }
+//        });
+//        btnLess.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//            }
+//        });
+
 //Emojis
         five.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                selection = 1;
+                selection = 5;
+                animation = AnimationUtils.loadAnimation ( Review_one.this,R.anim.bounce );
+                five.startAnimation ( animation );
                 ratings[ratingCounter] = selection;
                 ratingCounter++;
                 quizCounter++;
+                if(quizCounter != (TotalQuiz+1)) {
+//                    overridePendingTransition ( R.anim.lefttoright, R.anim.righttoleft );
+                animation = AnimationUtils.loadAnimation ( Review_one.this,R.anim.righttoleft );
+                    linearlayoutID.startAnimation ( animation );}
+
                 fetchData ();
             }
         });
         four.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                selection = 2;
+                selection = 4;
+                animation = AnimationUtils.loadAnimation ( Review_one.this,R.anim.bounce );
+                four.startAnimation ( animation );
                 ratings[ratingCounter] = selection;
                 ratingCounter++;
                 quizCounter++;
+                if(quizCounter != (TotalQuiz+1)){
+                animation = AnimationUtils.loadAnimation ( Review_one.this,R.anim.righttoleft );
+                linearlayoutID.startAnimation ( animation );}
                 fetchData ();
             }
         });
@@ -74,35 +110,52 @@ int questCount=0;
             @Override
             public void onClick(View v) {
                 selection = 3;
+                animation = AnimationUtils.loadAnimation ( Review_one.this,R.anim.bounce );
+                three.startAnimation ( animation );
                 ratings[ratingCounter] = selection;
                 ratingCounter++;
                 quizCounter++;
+                if(quizCounter != (TotalQuiz+1)){
+                animation = AnimationUtils.loadAnimation ( Review_one.this,R.anim.righttoleft );
+                linearlayoutID.startAnimation ( animation );}
                 fetchData ();
             }
         });
         two.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                selection = 4;
+                selection = 2;
+                animation = AnimationUtils.loadAnimation ( Review_one.this,R.anim.bounce );
+                two.startAnimation ( animation );
                 ratings[ratingCounter] = selection;
                 ratingCounter++;
                 quizCounter++;
+                if(quizCounter != (TotalQuiz+1)){
+                animation = AnimationUtils.loadAnimation ( Review_one.this,R.anim.righttoleft );
+                linearlayoutID.startAnimation ( animation );}
                 fetchData ();
             }
         });
         one.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                selection = 5;
+                selection = 1;
+                animation = AnimationUtils.loadAnimation ( Review_one.this,R.anim.bounce );
+                one.startAnimation ( animation );
                 ratings[ratingCounter] = selection;
                 ratingCounter++;
                 quizCounter++;
+                if(quizCounter != (TotalQuiz+1)){
+                animation = AnimationUtils.loadAnimation ( Review_one.this,R.anim.righttoleft );
+                linearlayoutID.startAnimation ( animation );}
                 fetchData ();
             }
         });
         fetchData();
 //        fetchFoodData();
 //        fetchServerData();
+//Log.i("Quizz counter",  quizCounter ) );
+//
 
     }
 //    private void fetchServerData() {
@@ -140,11 +193,7 @@ int questCount=0;
 //        //2nd
 //    }
 
-    private void fetchData() {      //  List<Review_Questions> ques = mDb.questionsDao ().loadAllQuestions ();
-//       questCount  = mDb.reviewQuestionsDao ().countQues();
-      // RoomDB.reviewQuestionsDao ().deleteAll ();
-//            quizCounter++;
-            //quizes = mDb.questionsDao ().findQuestion ( quizCounter );
+    private void fetchData() {
             AppExecutors.getInstance().diskIO().execute( new Runnable() {
                 @Override
                 public void run() {
@@ -153,23 +202,10 @@ int questCount=0;
                   //  Review_Questions[] array = ques.toArray(new Review_Questions[ques.size()]);
                     ques = mDb.questionsDao ().loadAllQuestions ();
                     TotalQuiz = mDb.questionsDao ().TotalQuestion ();
+                    if(quizCounter <= TotalQuiz)
                     quizes = mDb.questionsDao ().findQuestion ( quizCounter );
 
-//                    String[] ArrayQues = new String[ques.size()];
-//                    ArrayQues = ques.toArray(ArrayQues);
 //
-//                    for(int i=0;i<= 3;i++) {
-//                        Log.e ( "Questions", String.valueOf ( array[i] ) );
-//                    }
-//                    int review_id = mDb.reviewDao ().getID ();
-//                    int questionID = 0;
-//                    Response response = new Response ( review_id,questionID,ratings[questionID] );
-//                    questionID++;
-
-//                    mDb.responseDao ().insertResponse ( response );
-//                    Response response2 = new Response ( review_id,questionID,ratings[questionID] );
-//                    mDb.responseDao ().insertResponse ( response2 );
-
                     if(quizCounter == (TotalQuiz+1))
                     {
                         Response response = null;
@@ -180,10 +216,7 @@ int questCount=0;
                             mDb.responseDao ().insertResponse ( response );
                         questionID++;
                         }
-//
 
-//                        Response response2 = new Response ( review_id,questionID,ratings[questionID] );
-//                        mDb.responseDao ().insertResponse ( response2 );
 
                         float average_rates =0;
                         for(int a = 0; a < TotalQuiz; a++ ) {
@@ -201,16 +234,31 @@ int questCount=0;
                     runOnUiThread ( new Runnable () {
                         @Override
                         public void run() {
+//                            if(quizCounter >= 1)
+//                            {
+//                                btnLess.setVisibility (  View.VISIBLE  );
+//                            }
+//                            if(quizCounter == TotalQuiz )
+//                            {
+//                                btnMore.setVisibility ( View.INVISIBLE );
+//                            }
                             StringBuilder sb = new StringBuilder();
                             for (Review_Questions questn : ques) {
                                 sb.append(String.format( Locale.US,
                                         "%s\n", questn.getQuestions ()));
                             }
 
+                            Log.e ( "Total Quizes", "value" +TotalQuiz  );
                             Log.e ( "quizCounter","value=" + quizCounter );
                             Log.e ( "rateCounter","rate=" + ratingCounter );
                             Log.e ( "array" , "myarray"+ratings[0]+","+ratings[1]+","+ratings[2]+","+ratings[3]);
+
                             question.setText ( quizes );        //set sb to show all quezes
+                                    //setting the quesNo at top
+                            if(quizCounter <= TotalQuiz){
+                            String quesNos = quizCounter + " out of " + TotalQuiz;
+                            Log.e ( "quesNos",quesNos );
+                            quesNo.setText(quesNos);}
 
                         }
                     } );
@@ -232,8 +280,20 @@ int questCount=0;
         three = (ImageView) findViewById ( R.id.three);
        four = (ImageView) findViewById ( R.id.four);
         five = (ImageView) findViewById ( R.id.five );
+        linearlayoutID = (LinearLayout) findViewById ( R.id.linearlayoutID );
+       // btnLess = (Button) findViewById ( R.id.btnLess);
+        btnMore = (Button) findViewById ( R.id.btnMove);
+        quesNo = (TextView) findViewById ( R.id.quesNo);
     }
+    public void Less(View v){
+        quizCounter-- ;
+        fetchData ();
+    }
+    public void More(View v){
+        quizCounter++ ;
+        fetchData ();
 
+    }
     public void saving(View v){
         String type = questionType.getText ().toString ();
 

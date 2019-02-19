@@ -36,6 +36,14 @@ ImageView btnbirth,btnanniversary;
     private DatePickerDialog.OnDateSetListener mDateSetListner1;
 
     final Calendar myCalendar = Calendar.getInstance();
+
+    @Override
+    public void onBackPressed() {
+//        Intent a = new Intent(Intent.ACTION_MAIN);
+//        a.addCategory(Intent.CATEGORY_HOME);
+//        a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//        startActivity(a);}
+        startActivity(new Intent (Personal_Info_activity.this, Review_one.class));}
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate ( savedInstanceState );
@@ -68,8 +76,8 @@ ImageView btnbirth,btnanniversary;
             birth.setText(date);
         }
     };
-        btnanniversary.setOnClickListener(new View.OnClickListener () {
 
+        btnanniversary.setOnClickListener(new View.OnClickListener () {
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
@@ -119,10 +127,6 @@ ImageView btnbirth,btnanniversary;
                 if(customerContact.length() < 6 || customerContact.length() > 13) {
                     Toast.makeText(Personal_Info_activity.this,"Recheck your number",Toast.LENGTH_SHORT).show();
                 }
-//                else if  ( customerContact.length () != 0)
-//                {
-//                    Toast.makeText(Personal_Info_activity.this,"Recheck your number",Toast.LENGTH_SHORT).show();
-//                }
 
                 else if (customerEmail.length () != 0) {
                     if (!isValidEmail(customerEmail))
@@ -148,10 +152,10 @@ ImageView btnbirth,btnanniversary;
                     Log.e("values from session",rate1+" "+name+" "+contact+" "+email+" "+birth+" "+anniversary);
                     startActivity(new Intent (Personal_Info_activity.this, More_Info_Activity.class));
                 }
-
-
             }
+
         });
+
 
     }
     private boolean isValidMobile(String phone) {
@@ -202,4 +206,7 @@ ImageView btnbirth,btnanniversary;
   //  public void move_activity(View v){
 //getting values
 
-}
+  }
+
+
+

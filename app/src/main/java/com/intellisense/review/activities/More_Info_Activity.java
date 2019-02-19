@@ -37,6 +37,10 @@ String id_server = "Not selected",id_food = "Not specified";
     private List<String> Items ;
     public  Dialog mydialog;
     @Override
+    public void onBackPressed(){
+        finish();
+    }
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate ( savedInstanceState );
         setContentView ( R.layout.activity_more__info_ );
@@ -81,7 +85,7 @@ String id_server = "Not selected",id_food = "Not specified";
                             runOnUiThread ( new Runnable () {
                                 @Override
                                 public void run() {
-                                    thanks.setVisibility ( View.VISIBLE );
+                                    //thanks.setVisibility ( View.VISIBLE );
                                                 mydialog.setContentView ( R.layout.custompop );
                                                 mydialog.show ();
                                     new Handler ().postDelayed( new Runnable() {

@@ -49,7 +49,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.ReviewsActivity" />
         </activity>
-        <activity android:name=".activities.More_Info_Activity"            />
+        <activity android:name=".activities.More_Info_Activity"
+            android:label=""
+            android:noHistory="true">
+        </activity>
         <activity android:name=".activities.Personal_Info_activity"/>
         <activity android:name=".activities.Review_one"
             android:label="@string/review"

@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.intellisense.review.MainActivity;
 import com.intellisense.review.R;
 import com.intellisense.review.db_classes.AppDatabase;
 import com.intellisense.review.db_classes.AppExecutors;
@@ -49,6 +50,10 @@ Button btn_save,btnMore,btnLess;
     private List<Review_Questions> ques;
     private String quizes;
     private int TotalQuiz;
+
+    public void onBackPressed(){
+        startActivity(new Intent (this, MainActivity.class));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

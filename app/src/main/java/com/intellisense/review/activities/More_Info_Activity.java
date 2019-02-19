@@ -38,7 +38,7 @@ String id_server = "Not selected",id_food = "Not specified";
     public  Dialog mydialog;
     @Override
     public void onBackPressed(){
-        finish();
+        startActivity(new Intent (More_Info_Activity.this, MainActivity.class));
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -56,7 +56,7 @@ ImageView btnbirth,btnanniversary;
                       android.R.style.Theme_Holo_Light_Dialog_NoActionBar_MinWidth,
                       mDateSetListner,
                       year,month,day);
-              dialog.getWindow ().setBackgroundDrawable ( new ColorDrawable ( Color.TRANSPARENT));
+              dialog.getWindow ().setBackgroundDrawable ( new ColorDrawable ( Color.TRANSPARENT));;
               dialog.show ();
                           }
         });
@@ -114,12 +114,11 @@ ImageView btnbirth,btnanniversary;
                     }, 4000);
                 }
 
-//                else if  (customerContact.length () != 0) {
-//                    // { if(!isValidMobile ( customerContact))
-//                    //if (customerContact.length () >= 13) {
-//                        Toast.makeText ( Personal_Info_activity.this, "Recheck your number", Toast.LENGTH_SHORT ).show ();
-//
-//                }
+                else if  (customerContact.length () != 0)
+               // { if(!isValidMobile ( customerContact))
+                if(customerContact.length() < 6 || customerContact.length() > 13) {
+                    Toast.makeText(Personal_Info_activity.this,"Recheck your number",Toast.LENGTH_SHORT).show();
+                }
 //                else if  ( customerContact.length () != 0)
 //                {
 //                    Toast.makeText(Personal_Info_activity.this,"Recheck your number",Toast.LENGTH_SHORT).show();
@@ -155,20 +154,20 @@ ImageView btnbirth,btnanniversary;
         });
 
     }
-//    private boolean isValidMobile(String phone) {
-//        boolean check= false;
-//        if(!Pattern.matches("[a-zA-Z]+", phone)) {
-//            if(phone.length() < 6 || phone.length() > 13) {
-//                check = false;
-////                Toast.makeText(Personal_Info_activity.this,"Invalid number",Toast.LENGTH_SHORT).show();
-//            } else {
-//                check = true;
-//            }
-//        } else {
-//            check=false;
-//        }
-//        return check;
-//    }
+    private boolean isValidMobile(String phone) {
+        boolean check= false;
+        if(!Pattern.matches("[a-zA-Z]+", phone)) {
+            if(phone.length() < 6 || phone.length() > 13) {
+                check = false;
+//                Toast.makeText(Personal_Info_activity.this,"Invalid number",Toast.LENGTH_SHORT).show();
+            } else {
+                check = true;
+            }
+        } else {
+            check=false;
+        }
+        return check;
+    }
     private boolean isValidEmail(String email) {
         String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
                 + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
@@ -179,25 +178,25 @@ ImageView btnbirth,btnanniversary;
     }
 
     private void initViews(){
-        name =   findViewById ( R.id.name );
+        name = (EditText) findViewById ( R.id.name );
 
-        email =   findViewById ( R.id.email);
+        email = (EditText) findViewById ( R.id.email);
 
-        contact =   findViewById ( R.id.contact);
+        contact = (EditText) findViewById ( R.id.contact);
 
-        birth =   findViewById ( R.id.DOB);
+        birth = (TextView) findViewById ( R.id.DOB);
 
-        anniversary =  findViewById ( R.id.anniversary);
+        anniversary = (TextView) findViewById ( R.id.anniversary);
 
-        move =  findViewById ( R.id.next );
+        move = (Button) findViewById ( R.id.next );
 
-        error =   findViewById ( R.id.error );
+        error = (TextView) findViewById ( R.id.error );
 
-        nameerror =   findViewById ( R.id. nameerror);
+        nameerror = (TextView) findViewById ( R.id. nameerror);
 
-        btnbirth =findViewById ( R.id.btnbirth );
+        btnbirth =(ImageView)findViewById ( R.id.btnbirth );
 
-        btnanniversary =  findViewById ( R.id.btnanniversary );
+        btnanniversary = (ImageView) findViewById ( R.id.btnanniversary );
     }
 
   //  public void move_activity(View v){

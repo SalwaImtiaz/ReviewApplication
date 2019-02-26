@@ -1,13 +1,16 @@
 package com.intellisense.review;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.intellisense.review.activities.LoginActivity;
+import com.intellisense.review.activities.More_Info_Activity;
 import com.intellisense.review.activities.Personal_Info_activity;
 import com.intellisense.review.activities.Review_one;
 import com.intellisense.review.db_classes.AppDatabase;
@@ -20,8 +23,31 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     private AppDatabase mDb;
-TextView Response ;
-    StringBuilder sb = new StringBuilder ();
+
+    boolean doubleBackToExitPressedOnce = false;
+
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            finishAffinity();
+        }
+
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+
+        new Handler ().postDelayed( new Runnable() {
+
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce=false;
+            }
+        }, 2000);
+    }
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate ( savedInstanceState );
@@ -46,23 +72,5 @@ TextView Response ;
                 startActivity ( intent );
             }
         } );
-//        AppExecutors.getInstance ().diskIO ().execute ( new Runnable () {
-//            @Override
-//            public void run() {
-//                List<Response> respon = mDb.responseDao ().getResponse ();
-//
-//                for (Response resp : respon) {
-//                    sb.append ( String.format ( Locale.US,
-//                            "%s - %s - %s - %s \n", resp.getResponse_id (),resp.getReview_id (),resp.getQuestion_id (),resp.getResponse () ) );
-//                }
-//
-//                runOnUiThread ( new Runnable () {
-//                    @Override
-//                    public void run() {
-//                    Response.setText ( sb );
-//                    }
-//                } );
-//            }
-//        } );
     }
 }

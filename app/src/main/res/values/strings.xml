@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Review</string>
+    <string name="app_name">Review App</string>
 
     <!-- For the Admin Login Activity -->
 
@@ -9,7 +9,7 @@
 
     <string name="login">Login</string>
 
-    <string name="create_account_underline"><u>Create Account</u></string>
+    <string name="create_account_underline"><u>Not a user? Create Account here!</u></string>
 
     <!-- For the Admin Create Account Activity -->
     <string name="create_account">Create Account</string>
@@ -71,5 +71,6 @@
     <string name="hint_number">03**-*******</string>
     <string name="hint_email">david@hotmail.com</string>
     <string name="admin">Admin</string>
+    <string name="switch_user">Switch User</string>
 
 </resources>

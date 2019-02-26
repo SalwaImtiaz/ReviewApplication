@@ -51,9 +51,7 @@ Button btn_save,btnMore,btnLess;
     private String quizes;
     private int TotalQuiz;
 
-    public void onBackPressed(){
-        startActivity(new Intent (this, MainActivity.class));
-    }
+    public void onBackPressed(){startActivity(new Intent (this, MainActivity.class));}
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,20 +61,6 @@ Button btn_save,btnMore,btnLess;
 
         mDb = AppDatabase.getInstance ( getApplicationContext () );
         session = new SessionManager (getApplicationContext ());
-
-//        btnMore.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                quizCounter++ ;
-//                fetchData ();
-//            }
-//        });
-//        btnLess.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//            }
-//        });
 
 //Emojis
         five.setOnClickListener(new View.OnClickListener() {
@@ -89,7 +73,6 @@ Button btn_save,btnMore,btnLess;
                 ratingCounter++;
                 quizCounter++;
                 if(quizCounter != (TotalQuiz+1)) {
-//                    overridePendingTransition ( R.anim.lefttoright, R.anim.righttoleft );
                 animation = AnimationUtils.loadAnimation ( Review_one.this,R.anim.righttoleft );
                     linearlayoutID.startAnimation ( animation );}
 
@@ -247,6 +230,12 @@ Button btn_save,btnMore,btnLess;
 //                            {
 //                                btnMore.setVisibility ( View.INVISIBLE );
 //                            }
+                            if(quizCounter > 1)
+                                btnLess.setVisibility ( View.VISIBLE );
+                            if(quizCounter <= 1)
+                                btnLess.setVisibility ( View.INVISIBLE );
+
+
                             StringBuilder sb = new StringBuilder();
                             for (Review_Questions questn : ques) {
                                 sb.append(String.format( Locale.US,
@@ -276,9 +265,7 @@ Button btn_save,btnMore,btnLess;
     private void initViews(){
         questionText = (EditText) findViewById ( R.id.questionText );
         questionType = (EditText) findViewById ( R.id.questionType );
-        items = (TextView) findViewById ( R.id.Items );
-        servers = (TextView) findViewById ( R.id.Servers );
-        btn_save = (Button) findViewById ( R.id.btnsave );
+
         question = (TextView) findViewById ( R.id.question );
         one = (ImageView) findViewById ( R.id.one );
         two = (ImageView) findViewById ( R.id.two);
@@ -286,12 +273,16 @@ Button btn_save,btnMore,btnLess;
        four = (ImageView) findViewById ( R.id.four);
         five = (ImageView) findViewById ( R.id.five );
         linearlayoutID = (LinearLayout) findViewById ( R.id.linearlayoutID );
-       // btnLess = (Button) findViewById ( R.id.btnLess);
+        btnLess = (Button) findViewById ( R.id.btnLess);
         btnMore = (Button) findViewById ( R.id.btnMove);
         quesNo = (TextView) findViewById ( R.id.quesNo);
     }
     public void Less(View v){
-        quizCounter-- ;
+        if(quizCounter <= 1)
+            btnLess.setVisibility ( View.INVISIBLE );
+        if(!(ratingCounter <=0))
+        {quizCounter-- ;
+        ratingCounter--;}
         fetchData ();
     }
     public void More(View v){
@@ -299,50 +290,7 @@ Button btn_save,btnMore,btnLess;
         fetchData ();
 
     }
-    public void saving(View v){
-        String type = questionType.getText ().toString ();
 
-//        if(type == "1") {
-//            String question = questionText.getText ().toString ();
-////
-//            Review_Questions review_questions = new Review_Questions ( question );
-//            mDb.reviewQuestionsDao ().insert ( review_questions );
-//            finish ();
-//            Log.e ( "Saved", "Saved question" );
-//     //   mDb.serverDao ().deleteAllServers ();
-//            startActivity ( new Intent ( this, MainActivity.class ) );
 
-//        }
-//        else if( type =="2")
-//        {
-           // RoomDB.itemServedDao ().deleteAll ();
-//
-//            String question = questionText.getText ().toString ();
-//
-//            Items_Served items_served = new Items_Served ( question );
-//            RoomDB.itemServedDao ().insert ( items_served );
-//            finish ();
-//
-//
-//            startActivity ( new Intent ( this, MainActivity.class ) );
-//            Log.e ( "Saved", "Saved item" );
-//        }
-//        else if(type == "3")
-//        {
-//            String question = questionText.getText ().toString ();
-//
-//            Server server = new Server ( question );
-//        mDb.serverDao ().insert ( server );
-//            finish ();
-//
-//            Log.e ( "Saved", "Saved server" );
-//
-//            startActivity ( new Intent ( this, MainActivity.class ) );
-////        }
-    }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-    }
 }

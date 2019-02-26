@@ -135,6 +135,7 @@
         android:layout_gravity="bottom"
         android:background="@color/red"
         android:text="@string/next"
+        android:onClick="move_activity"
         android:textColor="@color/white"
         android:textSize="18sp"
         android:textStyle="bold" />

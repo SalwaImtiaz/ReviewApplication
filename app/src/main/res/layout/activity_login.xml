@@ -19,43 +19,57 @@
 
             <!-- Admin Label -->
             <TextView
-                android:text="@string/admin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:fontFamily="sans-serif-light"
+                android:text="@string/admin"
                 android:textColor="@color/colorPrimary"
                 android:textSize="28sp"
-                android:fontFamily="sans-serif-light"
-                android:layout_marginTop="32dp"/>
+                android:textStyle="bold" />
 
-            <!-- Admin's Email Field -->
-            <android.support.design.widget.TextInputLayout
+            <EditText
                 android:id="@+id/activity_login_admin_email"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp">
+                android:hint="@string/hint_email"
+                android:inputType="textEmailAddress" />
 
-                <android.support.design.widget.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/email"
-                    android:inputType="textEmailAddress" />
-
-            </android.support.design.widget.TextInputLayout>
-
-            <!-- Admin's Password Field -->
-            <android.support.design.widget.TextInputLayout
+            <EditText
                 android:id="@+id/activity_login_admin_password"
-                android:layout_width="match_parent"
+                android:layout_width="167dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp">
+                android:hint="@string/password"
+                android:inputType="textPassword" />
+            <!--&lt;!&ndash; Admin's Email Field &ndash;&gt;-->
+            <!--<android.support.design.widget.TextInputLayout-->
+                <!--android:id="@+id/activity_login_admin_email"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="32dp">-->
 
-                <android.support.design.widget.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/password"
-                    android:inputType="textPassword" />
+                <!--<android.support.design.widget.TextInputEditText-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:hint="@string/email"-->
+                    <!--android:inputType="textEmailAddress" />-->
 
-            </android.support.design.widget.TextInputLayout>
+            <!--</android.support.design.widget.TextInputLayout>-->
+
+            <!--&lt;!&ndash; Admin's Password Field &ndash;&gt;-->
+            <!--<android.support.design.widget.TextInputLayout-->
+                <!--android:id="@+id/activity_login_admin_password"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="16dp">-->
+
+                <!--<android.support.design.widget.TextInputEditText-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:hint="@string/password"-->
+                    <!--android:inputType="textPassword" />-->
+
+            <!--</android.support.design.widget.TextInputLayout>-->
 
             <!-- Login Button -->
             <Button
@@ -67,6 +81,16 @@
                 android:backgroundTint="@color/colorPrimary"
                 android:layout_marginTop="20dp"
                 android:padding="18dp"/>
+
+            <Button
+
+                android:id="@+id/switch_user"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/red"
+                android:text="@string/switch_user"
+                android:onClick="setSwitch_user"
+                android:visibility="invisible"/>
 
             <!-- TextView representing link to create account activity -->
             <TextView
@@ -84,3 +108,91 @@
     </ScrollView>
 
 </RelativeLayout>
+
+
+    <!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--tools:context="com.intellisense.review.activities.LoginActivity">-->
+
+    <!--<ScrollView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:orientation="vertical"-->
+            <!--android:gravity="center_horizontal"-->
+            <!--android:padding="48dp">-->
+
+            <!--&lt;!&ndash; Admin Label &ndash;&gt;-->
+            <!--<TextView-->
+                <!--android:text="@string/admin"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:textColor="@color/colorPrimary"-->
+                <!--android:textSize="28sp"-->
+                <!--android:fontFamily="sans-serif-light"-->
+                <!--android:layout_marginTop="32dp"/>-->
+
+            <!--&lt;!&ndash; Admin's Email Field &ndash;&gt;-->
+            <!--<android.support.design.widget.TextInputLayout-->
+                <!--android:id="@+id/activity_login_admin_email"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="32dp">-->
+
+                <!--<android.support.design.widget.TextInputEditText-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:hint="@string/email"-->
+                    <!--android:inputType="textEmailAddress" />-->
+
+            <!--</android.support.design.widget.TextInputLayout>-->
+
+            <!--&lt;!&ndash; Admin's Password Field &ndash;&gt;-->
+            <!--<android.support.design.widget.TextInputLayout-->
+                <!--android:id="@+id/activity_login_admin_password"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="16dp">-->
+
+                <!--<android.support.design.widget.TextInputEditText-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:hint="@string/password"-->
+                    <!--android:inputType="textPassword" />-->
+
+            <!--</android.support.design.widget.TextInputLayout>-->
+
+            <!--&lt;!&ndash; Login Button &ndash;&gt;-->
+            <!--<Button-->
+                <!--android:id="@+id/activity_login_button"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="@string/login"-->
+                <!--android:textColor="@android:color/white"-->
+                <!--android:backgroundTint="@color/colorPrimary"-->
+                <!--android:layout_marginTop="20dp"-->
+                <!--android:padding="18dp"/>-->
+
+            <!--&lt;!&ndash; TextView representing link to create account activity &ndash;&gt;-->
+            <!--<TextView-->
+                <!--android:id="@+id/activity_login_create_account_textview"-->
+                <!--android:text="@string/create_account_underline"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="36dp"-->
+                <!--android:textSize="16sp"-->
+                <!--android:padding="8dp"-->
+                <!--android:fontFamily="sans-serif-medium"/>-->
+
+        <!--</LinearLayout>-->
+
+    <!--</ScrollView>-->
+
+<!--</RelativeLayout>-->

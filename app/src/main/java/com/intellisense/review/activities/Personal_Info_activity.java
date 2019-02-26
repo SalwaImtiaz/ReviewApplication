@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -38,8 +39,7 @@ ImageView btnbirth,btnanniversary;
     final Calendar myCalendar = Calendar.getInstance();
 
     @Override
-    public void onBackPressed() {
-        startActivity(new Intent (Personal_Info_activity.this, Review_one.class));}
+    public void onBackPressed() {startActivity(new Intent (Personal_Info_activity.this, Review_one.class));}
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate ( savedInstanceState );
@@ -97,61 +97,6 @@ ImageView btnbirth,btnanniversary;
                 anniversary.setText(date);
             }
         };
-        move.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String customerName =  name.getText ().toString () ;
-                String customerEmail = email.getText ().toString () ;
-                String customerContact = contact.getText ().toString () ;
-                String customerBirth = birth.getText ().toString () ;
-                String customerAnniversary = anniversary.getText ().toString () ;
-                if(customerName.length () <= 2 )
-                {
-                    error.setVisibility ( View.VISIBLE );
-                    nameerror.setVisibility ( View.VISIBLE );
-                    error.setText("Please fill in your name correctly");
-                    new Handler ().postDelayed( new Runnable() {
-                        @Override
-                        public void run() {
-                            error.setVisibility ( View.INVISIBLE );
-                                }
-                    }, 4000);
-                }
-
-                else if  (customerContact.length () != 0)
-               // { if(!isValidMobile ( customerContact))
-                if(customerContact.length() < 6 || customerContact.length() > 13) {
-                    Toast.makeText(Personal_Info_activity.this,"Recheck your number",Toast.LENGTH_SHORT).show();
-                }
-
-                else if (customerEmail.length () != 0) {
-                    if (!isValidEmail(customerEmail))
-                    Toast.makeText(Personal_Info_activity.this,"Invalid Email",Toast.LENGTH_SHORT).show();
-                }
-                else
-                {
-                    Log.e("values from user",customerAnniversary+" "+customerBirth+" "+customerContact+" "+customerEmail+" "+customerName);
-
-                    //storing to session
-                    HashMap<String, String> user = session.getUserDetails ();
-                    final String rate = user.get (SessionManager.ratings);
-
-                    session.createLoginSession (rate,customerName,customerContact,customerEmail,customerBirth,customerAnniversary,null,null,null,null);
-
-                    final String rate1 = user.get (SessionManager.ratings);
-                    final String name = user.get (SessionManager.customer_name);
-                    final String contact = user.get (SessionManager.customer_contact_no);
-                    final String email = user.get (SessionManager.customer_email);
-                    final String birth = user.get (SessionManager.customer_birthday);
-                    final String anniversary = user.get (SessionManager.customer_anniversary);
-
-                    Log.e("values from session",rate1+" "+name+" "+contact+" "+email+" "+birth+" "+anniversary);
-                    startActivity(new Intent (Personal_Info_activity.this, More_Info_Activity.class));
-                }
-            }
-
-        });
-
 
     }
     private boolean isValidMobile(String phone) {
@@ -199,8 +144,60 @@ ImageView btnbirth,btnanniversary;
         btnanniversary = (ImageView) findViewById ( R.id.btnanniversary );
     }
 
-  //  public void move_activity(View v){
+    public void move_activity(View v) {
 //getting values
+        String customerName =  name.getText ().toString () ;
+        String customerEmail = email.getText ().toString () ;
+        String customerContact = contact.getText ().toString () ;
+        String customerBirth = birth.getText ().toString () ;
+        String customerAnniversary = anniversary.getText ().toString () ;
+        if(customerName.length () <= 2 )
+        {
+            error.setVisibility ( View.VISIBLE );
+            nameerror.setVisibility ( View.VISIBLE );
+            error.setText("Please fill in your name correctly");
+            new Handler ().postDelayed( new Runnable() {
+                @Override
+                public void run() {
+                    error.setVisibility ( View.INVISIBLE );
+                }
+            }, 4000);
+        }
+
+        else if  (customerContact.length () != 0 && (customerContact.length () < 6 || customerContact.length () > 13)) {
+                     //  if(!isValidMobile ( customerContact))
+                  //  if (customerContact.length () < 6 || customerContact.length () > 13)
+                     Toast.makeText ( Personal_Info_activity.this, "Recheck your number", Toast.LENGTH_SHORT ).show ();
+
+                }
+
+        else if (customerEmail.length () != 0 && (!isValidEmail(customerEmail))) {
+//            if
+                Toast.makeText(Personal_Info_activity.this,"Invalid Email",Toast.LENGTH_SHORT).show();
+        }
+       //   else if(customerName.length () !=0 &&(customerContact.length () != 0 || customerContact.length () == 0 || customerEmail.length () != 0 || customerEmail.length () == 0 || customerBirth.length () != 0  || customerBirth.length () ==0 || customerAnniversary.length () != 0 ||customerAnniversary.length () ==0 ))
+
+        else{
+            Log.e("values from user",customerAnniversary+" "+customerBirth+" "+customerContact+" "+customerEmail+" "+customerName);
+
+            //storing to session
+            HashMap<String, String> user = session.getUserDetails ();
+            final String rate = user.get (SessionManager.ratings);
+
+            session.createLoginSession (rate,customerName,customerContact,customerEmail,customerBirth,customerAnniversary,null,null,null,null);
+
+            final String rate1 = user.get (SessionManager.ratings);
+            final String name = user.get (SessionManager.customer_name);
+            final String contact = user.get (SessionManager.customer_contact_no);
+            final String email = user.get (SessionManager.customer_email);
+            final String birth = user.get (SessionManager.customer_birthday);
+            final String anniversary = user.get (SessionManager.customer_anniversary);
+
+            Log.e("values from session",rate1+" "+name+" "+contact+" "+email+" "+birth+" "+anniversary);
+            startActivity(new Intent (Personal_Info_activity.this, More_Info_Activity.class));
+       //     startActivity(new Intent( Settings.ACTION_ADD_ACCOUNT));
+        }
+    }
 
   }
 

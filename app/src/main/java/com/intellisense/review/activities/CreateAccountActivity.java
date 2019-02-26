@@ -20,6 +20,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.intellisense.review.MainActivity;
 import com.intellisense.review.R;
 import com.intellisense.review.Utilities;
 import com.intellisense.review.db_classes.Admin;
@@ -45,7 +46,9 @@ public class CreateAccountActivity extends AppCompatActivity implements AdapterV
 
     // Database Object
     private AppDatabase mDb;
-
+    public void onBackPressed(){
+        startActivity(new Intent (this, MainActivity.class));
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

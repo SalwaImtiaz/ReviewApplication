@@ -225,7 +225,7 @@ public class DetailReviewActivity extends AppCompatActivity {
                     imageResource = R.drawable.five;
                     break;
                 default:
-                    imageResource = R.drawable.five;
+                    imageResource = R.mipmap.na;
             }
             emojiImageView.setImageResource(imageResource);
 

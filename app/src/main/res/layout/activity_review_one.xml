@@ -23,37 +23,53 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:hint="test"
         android:textAlignment="center"
         android:backgroundTint="@color/starsgray"
         android:textColor="@color/red"
         android:background="@drawable/rounded_corner"/>
 
 
-    <RelativeLayout
-        android:id="@+id/linearlayout"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-       >
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingTop="30dp">
+
+        <Button
+            android:id="@+id/btnLess"
+            android:layout_width="65dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/question"
+            android:layout_gravity="left"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/left"
+            android:backgroundTint="@color/starsgray"
+            android:lineSpacingExtra="8sp"
+            android:onClick="Less"
+            android:paddingBottom="20dp"
+            android:paddingTop="20dp"
+            android:textColor="@color/black"
+            android:textSize="10sp"
+            android:visibility="invisible" />
 
         <TextView
-
             android:id="@+id/question"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="left"
             android:layout_marginTop="50dp"
             android:fontFamily="cursive"
+            android:hint="how was the quality of food?"
             android:lineSpacingExtra="8sp"
             android:paddingBottom="20dp"
-            android:paddingTop="20dp"
             android:paddingLeft="10dp"
+            android:paddingTop="20dp"
             android:textAlignment="center"
             android:textAllCaps="false"
             android:textColor="@color/red"
             android:textSize="27dp"
-            android:hint="how was the quality of food?"
-            android:layout_gravity="left"
             android:textStyle="bold" />
 
         <Button
@@ -71,8 +87,8 @@
             android:paddingBottom="20dp"
             android:paddingTop="20dp"
             android:textColor="@color/black"
-            android:textSize="10dp" />
-    </RelativeLayout>
+            android:textSize="10sp" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -82,30 +98,63 @@
         android:orientation="horizontal"
         android:padding="2dp"
         android:paddingTop="50dp">
-
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
         <pl.droidsonroids.gif.GifImageView
             android:id="@+id/five"
             android:layout_width="70dp"
             android:layout_height="70dp"
-
             android:background="@color/white"
             android:src="@drawable/five" />
-
+    <TextView
+        android:text="Excellent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
         <pl.droidsonroids.gif.GifImageView
             android:id="@+id/four"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:background="@color/white"
             android:src="@drawable/four" />
+            <TextView
+                android:text="Good"
+                android:paddingStart="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-        <pl.droidsonroids.gif.GifImageView
-            android:id="@+id/three"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:background="@color/white"
-            android:paddingTop="10dp"
-            android:src="@drawable/thumbsup" />
+                <pl.droidsonroids.gif.GifImageView
+                    android:id="@+id/three"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:adjustViewBounds="false"
+                    android:background="@color/white"
+                    android:cropToPadding="false"
+                    android:paddingTop="10dp"
+                    android:src="@drawable/thumbsup" />
 
+                <TextView
+                    android:text="Satisfactory"
+                    android:paddingStart="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
         <pl.droidsonroids.gif.GifImageView
             android:id="@+id/two"
             android:layout_width="70dp"
@@ -113,12 +162,30 @@
             android:background="@color/white"
             android:src="@drawable/two" />
 
+                    <TextView
+                        android:text="Bad"
+                        android:paddingStart="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+   <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
         <pl.droidsonroids.gif.GifImageView
             android:id="@+id/one"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:background="@color/white"
             android:src="@drawable/one" />
+
+       <TextView
+           android:text="Poor"
+           android:paddingStart="20dp"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content" />
+   </LinearLayout>
 
     </LinearLayout>
 
@@ -137,26 +204,5 @@
         android:visibility="gone"
         />
 
-    <Button
-        android:id="@+id/btnsave"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Save"
-        android:onClick="saving"
-        android:visibility="gone"
 
-        />
-
-    <TextView
-        android:id="@+id/Servers"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-    />
-    <TextView
-        android:id="@+id/Items"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        />
 </LinearLayout>

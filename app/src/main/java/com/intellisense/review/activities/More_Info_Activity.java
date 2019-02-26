@@ -36,10 +36,10 @@ String id_server = "Not selected",id_food = "Not specified";
     private List<String> servers ;
     private List<String> Items ;
     public  Dialog mydialog;
-    @Override
-    public void onBackPressed(){
-        startActivity(new Intent (More_Info_Activity.this, MainActivity.class));
-    }
+//    @Override
+//    public void onBackPressed(){
+//        finishAffinity();
+//    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate ( savedInstanceState );
@@ -92,7 +92,7 @@ String id_server = "Not selected",id_food = "Not specified";
                                         @Override
                                         public void run() {
                                             mydialog.dismiss ();
-                                            startActivity ( new Intent ( More_Info_Activity.this, MainActivity.class ) );
+                                            finishAffinity();
                                         }
                                     }, 4000);
 

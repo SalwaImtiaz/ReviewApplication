@@ -92,26 +92,11 @@ String id_server = "Not selected",id_food = "Not specified";
                                         @Override
                                         public void run() {
                                             mydialog.dismiss ();
-                                            finishAffinity();
+                                            startActivity(new Intent (More_Info_Activity.this, MainActivity.class));
                                         }
                                     }, 4000);
 
-//
-//                                                txtclose.setOnClickListener ( new View.OnClickListener () {
-//                                                    @Override
-//                                                    public void onClick(View v) {
-//                                                        {
-//                                                            mydialog.dismiss ();
-//                                                        }
-//                                                    }
-//                                                } );
-//                                                btnMove.setOnClickListener ( new View.OnClickListener () {
-//                                                    @Override
-//                                                    public void onClick(View v) {
-//                                                        {
-//                                                                }
-//                                                    }
-//                                                } );
+
                                             }
 
                             } );

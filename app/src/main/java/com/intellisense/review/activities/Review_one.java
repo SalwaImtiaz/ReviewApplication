@@ -27,6 +27,9 @@ import com.intellisense.review.db_classes.SessionManager;
 
 import org.w3c.dom.Text;
 
+import java.sql.Date;
+import java.sql.Time;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -198,9 +201,10 @@ Button btn_save,btnMore,btnLess;
                     {
                         Response response = null;
                         int review_id = mDb.reviewDao ().getID ();
-                        int questionID = 1;
+                        int questionID = 1,company_id_fk = 1;
+                        final java.util.Date date = new java.util.Date ();
                         for(int counter = 0 ; counter <TotalQuiz ;counter++){
-                        response = new Response ( review_id,questionID,ratings[counter] );
+                        response = new Response ( review_id,questionID,ratings[counter],company_id_fk,date );
                             mDb.responseDao ().insertResponse ( response );
                         questionID++;
                         }
@@ -222,14 +226,6 @@ Button btn_save,btnMore,btnLess;
                     runOnUiThread ( new Runnable () {
                         @Override
                         public void run() {
-//                            if(quizCounter >= 1)
-//                            {
-//                                btnLess.setVisibility (  View.VISIBLE  );
-//                            }
-//                            if(quizCounter == TotalQuiz )
-//                            {
-//                                btnMore.setVisibility ( View.INVISIBLE );
-//                            }
                             if(quizCounter > 1)
                                 btnLess.setVisibility ( View.VISIBLE );
                             if(quizCounter <= 1)

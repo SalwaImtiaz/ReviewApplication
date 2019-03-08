@@ -8,7 +8,6 @@ import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
 
 import com.intellisense.review.db_classes.Response;
-import com.intellisense.review.db_classes.Review_Questions;
 
 import java.util.List;
 
@@ -32,7 +31,7 @@ public interface ResponseDao {
     @Query("SELECT * FROM response")
     List<Response> loadAllResponse();
 
-    @Query("Select response_id,review_id,response,question_id from response")
+    @Query("Select response_id,review_id,response,question_id,company_id,entry_time from response")
     List<Response> getResponse();
 
     @Delete

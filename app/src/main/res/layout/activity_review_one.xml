@@ -38,18 +38,19 @@
 
         <Button
             android:id="@+id/btnLess"
-            android:layout_width="65dp"
+            android:layout_width="40dp"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignTop="@+id/question"
             android:layout_gravity="left"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="40dp"
             android:background="@drawable/left"
             android:backgroundTint="@color/starsgray"
             android:lineSpacingExtra="8sp"
             android:onClick="Less"
             android:paddingBottom="20dp"
             android:paddingTop="20dp"
+            android:paddingVertical="20dp"
             android:textColor="@color/black"
             android:textSize="10sp"
             android:visibility="invisible" />
@@ -74,12 +75,13 @@
 
         <Button
             android:id="@+id/btnMore"
-            android:layout_width="wrap_content"
+            android:layout_width="40dp"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignTop="@+id/question"
             android:layout_gravity="right"
             android:layout_marginTop="10dp"
+            android:paddingVertical="20dp"
             android:background="@drawable/right"
             android:backgroundTint="@color/starsgray"
             android:lineSpacingExtra="8sp"
@@ -173,12 +175,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
-        <pl.droidsonroids.gif.GifImageView
-            android:id="@+id/one"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:background="@color/white"
-            android:src="@drawable/one" />
+
+       <pl.droidsonroids.gif.GifImageView
+           android:id="@+id/one"
+           android:layout_width="70dp"
+           android:layout_height="72dp"
+           android:background="@color/white"
+           android:src="@drawable/one" />
 
        <TextView
            android:text="Poor"

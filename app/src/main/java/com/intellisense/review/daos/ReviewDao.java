@@ -34,6 +34,9 @@ public interface ReviewDao {
     @Query("Select MAX(review_id)+1 from reviews")
     int getID();
 
+    @Query("Select COUNT(review_id)+1 from reviews")
+    int getTotalRows();
+
     @Delete
     void deleteReview(Review review);
 

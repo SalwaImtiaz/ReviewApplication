@@ -15,14 +15,22 @@ public class Server {
     @NonNull
     private int server_id;
     private String server_name;
+    private int company_id;
+    private String entry_time;
 
     @Ignore
-    public Server( String server_name){
-        this.server_name = server_name;    }
+    public Server( String server_name,int company_id,String entry_time){
+        this.server_name = server_name;
+        this.company_id = company_id;
+        this.entry_time = entry_time;
+    }
 
-    public Server(int server_id,String server_name){
+    public Server(int server_id,String server_name,int company_id,String entry_time){
         this.server_id = server_id;
-        this.server_name = server_name;    }
+        this.server_name = server_name;
+        this.company_id = company_id;
+        this.entry_time = entry_time;
+    }
 
     @NonNull
     public int getServer_id() {
@@ -39,5 +47,21 @@ public class Server {
 
     public void setServer_name(String server_name) {
         this.server_name = server_name;
+    }
+
+    public int getCompany_id() {
+        return company_id;
+    }
+
+    public void setCompany_id(int company_id) {
+        this.company_id = company_id;
+    }
+
+    public String getEntry_time() {
+        return entry_time;
+    }
+
+    public void setEntry_time(String entry_time) {
+        this.entry_time = entry_time;
     }
 }

@@ -20,7 +20,7 @@ public class Review {
 
     private String customer_email;
 
-    private String customer_contact_no;
+    private String customer_contact;
 
     private String customer_birthday;
 
@@ -38,11 +38,15 @@ public class Review {
 
     private Date created_time;
 
+    private int company_id;
+
+    private Date entry_time;
+
     @Ignore
-    public Review(String customer_name, String customer_email, String customer_contact_no, String customer_birthday, String customer_anniversary, int server_id, String service_offered_ids, float rating, String suggestion, String suggestion_for_server, Date created_time) {
+    public Review(String customer_name, String customer_email, String customer_contact, String customer_birthday, String customer_anniversary, int server_id, String service_offered_ids, float rating, String suggestion, String suggestion_for_server, Date created_time, int company_id, Date entry_time) {
         this.customer_name = customer_name;
         this.customer_email = customer_email;
-        this.customer_contact_no = customer_contact_no;
+        this.customer_contact = customer_contact;
         this.customer_birthday = customer_birthday;
         this.customer_anniversary = customer_anniversary;
         this.server_id = server_id;
@@ -51,13 +55,15 @@ public class Review {
         this.suggestion = suggestion;
         this.suggestion_for_server = suggestion_for_server;
         this.created_time = created_time;
+        this.company_id = company_id;
+        this.entry_time = entry_time;
     }
 
-    public Review(int review_id, String customer_name, String customer_email, String customer_contact_no, String customer_birthday, String customer_anniversary, int server_id, String service_offered_ids, float rating, String suggestion, String suggestion_for_server, Date created_time) {
+    public Review(int review_id, String customer_name, String customer_email, String customer_contact, String customer_birthday, String customer_anniversary, int server_id, String service_offered_ids, float rating, String suggestion, String suggestion_for_server, Date created_time, int company_id, Date entry_time) {
         this.review_id = review_id;
         this.customer_name = customer_name;
         this.customer_email = customer_email;
-        this.customer_contact_no = customer_contact_no;
+        this.customer_contact = customer_contact;
         this.customer_birthday = customer_birthday;
         this.customer_anniversary = customer_anniversary;
         this.server_id = server_id;
@@ -66,6 +72,8 @@ public class Review {
         this.suggestion = suggestion;
         this.suggestion_for_server = suggestion_for_server;
         this.created_time = created_time;
+        this.company_id = company_id;
+        this.entry_time = entry_time;
     }
 
     public int getReview_id() {
@@ -92,12 +100,12 @@ public class Review {
         this.customer_email = customer_email;
     }
 
-    public String getCustomer_contact_no() {
-        return customer_contact_no;
+    public String getCustomer_contact() {
+        return customer_contact;
     }
 
-    public void setCustomer_contact_no(String customer_contact_no) {
-        this.customer_contact_no = customer_contact_no;
+    public void setCustomer_contact(String customer_contact) {
+        this.customer_contact = customer_contact;
     }
 
     public String getCustomer_birthday() {
@@ -162,5 +170,21 @@ public class Review {
 
     public void setCreated_time(Date created_time) {
         this.created_time = created_time;
+    }
+
+    public int getCompany_id() {
+        return company_id;
+    }
+
+    public void setCompany_id(int company_id) {
+        this.company_id = company_id;
+    }
+
+    public Date getEntry_time() {
+        return entry_time;
+    }
+
+    public void setEntry_time(Date entry_time) {
+        this.entry_time = entry_time;
     }
 }

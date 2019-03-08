@@ -5,6 +5,8 @@ import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
+import java.util.Date;
+
 /**
  * Created by user on 12/6/2018.
  */
@@ -19,19 +21,25 @@ public class Response {
     private int review_id;
     private int response;
     private int question_id;
+    private int company_id;
+    private Date entry_time;
 
     @Ignore
-    public Response(int review_id, int question_id, int response){
+    public Response(int review_id, int question_id, int response, int company_id,Date entry_time){
         this.review_id = review_id;
         this.question_id = question_id;
         this.response = response;
+        this.company_id = company_id;
+        this.entry_time = entry_time;
     }
 
-    public Response(int response_id,int review_id,int question_id,int response){
+    public Response(int response_id,int review_id,int question_id,int response, int company_id,Date entry_time){
         this.response_id = response_id;
         this.review_id = review_id;
         this.question_id = question_id;
         this.response = response;
+        this.company_id = company_id;
+        this.entry_time =entry_time;
     }
 
     @NonNull
@@ -65,5 +73,22 @@ public class Response {
 
     public void setReview_id(int review_id) {
         this.review_id = review_id;
+    }
+
+    public int getCompany_id() {
+        return company_id;
+    }
+
+    public void setCompany_id(int company_id) {
+        this.company_id = company_id;
+    }
+
+
+    public Date getEntry_time() {
+        return entry_time;
+    }
+
+    public void setEntry_time(Date entry_time) {
+        this.entry_time = entry_time;
     }
 }

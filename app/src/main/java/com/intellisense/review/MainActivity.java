@@ -14,44 +14,41 @@ import com.intellisense.review.activities.More_Info_Activity;
 import com.intellisense.review.activities.Personal_Info_activity;
 import com.intellisense.review.activities.Review_one;
 import com.intellisense.review.db_classes.AppDatabase;
-import com.intellisense.review.db_classes.AppExecutors;
-import com.intellisense.review.db_classes.Response;
-import com.intellisense.review.db_classes.Review_Questions;
 
-import java.util.List;
-import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     private AppDatabase mDb;
 
+    String baseUrl = "https://api.github.com/users/SalwaImtiaz/repos";
+
     boolean doubleBackToExitPressedOnce = false;
+    private String url;
 
     @Override
     public void onBackPressed() {
         if (doubleBackToExitPressedOnce) {
-            super.onBackPressed();
-            finishAffinity();
+            super.onBackPressed ();
+            finishAffinity ();
         }
 
         this.doubleBackToExitPressedOnce = true;
-        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+        Toast.makeText ( this, "Please click BACK again to exit", Toast.LENGTH_SHORT ).show ();
 
-        new Handler ().postDelayed( new Runnable() {
+        new Handler ().postDelayed ( new Runnable () {
 
             @Override
             public void run() {
-                doubleBackToExitPressedOnce=false;
+                doubleBackToExitPressedOnce = false;
             }
-        }, 2000);
+        }, 2000 );
     }
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate ( savedInstanceState );
         setContentView ( R.layout.activity_main );
+
+
         //Response =(TextView) findViewById ( R.id.Response );
         mDb = AppDatabase.getInstance ( getApplicationContext () );
         Button button = (Button) findViewById ( R.id.login_main_activity_button );
@@ -63,7 +60,6 @@ public class MainActivity extends AppCompatActivity {
             }
         } );
 
-
         Button button2 = (Button) findViewById ( R.id.CustomerBtn );
         button2.setOnClickListener ( new View.OnClickListener () {
             @Override
@@ -73,4 +69,5 @@ public class MainActivity extends AppCompatActivity {
             }
         } );
     }
+
 }

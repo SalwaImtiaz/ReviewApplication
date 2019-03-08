@@ -19,18 +19,22 @@ import com.intellisense.review.R;
 import com.intellisense.review.db_classes.AppDatabase;
 import com.intellisense.review.db_classes.AppExecutors;
 import com.intellisense.review.db_classes.Review;
+import com.intellisense.review.db_classes.Server;
 import com.intellisense.review.db_classes.SessionManager;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 
 public class More_Info_Activity extends AppCompatActivity {
 EditText tableNo = null,suggestions = null;
 Button btn_done,btnMove;
 Spinner spinnerItems,spinnerServer;
 TextView thanks,txtclose;
-String id_server = "Not selected",id_food = "Not specified";
+String id_server,id_food ;
     SessionManager session;
     private AppDatabase mDb;
     private List<String> servers ;
@@ -63,6 +67,7 @@ String id_server = "Not selected",id_food = "Not specified";
                             String tableno = tableNo.getText ().toString ();
                             String suggest = suggestions.getText ().toString ();
 
+                            Date date = new Date();
                             HashMap<String, String> user = session.getUserDetails ();
                             final String rate = user.get ( SessionManager.ratings );
                             final Float floatRate = Float.parseFloat ( rate );
@@ -73,12 +78,30 @@ String id_server = "Not selected",id_food = "Not specified";
                             final String customerEmail = user.get ( SessionManager.customer_email );
                             final String customerBirth = user.get ( SessionManager.customer_birthday );
                             final String customerAnniversary = user.get ( SessionManager.customer_anniversary );
-                            final Date date = new Date ();
+//                            final Date date = new Date ();
                             // float rates = mDb.responseDao ().getID ();
 
-                            Review review = new Review ( customerName, customerEmail, customerContact, customerBirth, customerAnniversary, server2, id_food, floatRate, suggest, tableno, date );
+                            Review review = new Review (  customerName, customerEmail, customerContact, customerBirth, customerAnniversary, server2, id_food, floatRate, suggest, tableno, date ,1,date);
                             mDb.reviewDao ().insertReview ( review );
+//
+        StringBuilder sb5 = new StringBuilder();
+        List<Review> ques = mDb.reviewDao ().loadAllReviews ();
+//        String quizes = mDb.serverDao ().getServerName ();
+//
+//
+///////////////////////////////////////////////////////////////////////////////////////////delete
+//       // mDb.reviewQuestionsDao ().deleteAll ();
+        for (Review quest : ques) {
+            sb5.append(String.format( Locale.US,
+                    "%s - %s - %s,\n",quest.getEntry_time (), quest.getCompany_id (),quest.getService_offered_ids ()));
+        }
+                            Log.e("formattedDate:" ," "+sb5);
+//        servers.setText(sb5);
+//
 
+
+                            String review_test = String.valueOf ( mDb.reviewDao ().loadAllReviews () );
+                            Log.e("All reviews",review_test);
                             Log.e ( "values from session", customerName + " " + customerContact + " " + customerEmail + " " + floatRate + " " + server2 + " " + id_food + " " + tableno + " " + suggest + " " + date + " " + customerAnniversary );
 
 

@@ -28,6 +28,7 @@ import com.intellisense.review.db_classes.AppDatabase;
 import com.intellisense.review.db_classes.AppExecutors;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class CreateAccountActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
@@ -175,12 +176,12 @@ public class CreateAccountActivity extends AppCompatActivity implements AdapterV
     }
 
     private void addDataInDatabase(final String userName, final String email, final String password)
-    {
+    {   final Date date = new Date ();
         AppExecutors.getInstance().diskIO().execute(new Runnable() {
             @Override
             public void run() {
                 // Add data in database
-                mDb.adminDao().insertAdmin(new Admin(userName,email,password,adminType));
+                mDb.adminDao().insertAdmin(new Admin(userName,email,password,adminType,1,1,date));
 
                 // Get data from database
                 final Admin admin = mDb.adminDao().loadAdmin(email,password);

@@ -1,7 +1,6 @@
 package com.intellisense.review.activities;
 
 import android.content.Intent;
-import android.content.UriMatcher;
 import android.graphics.Color;
 import android.net.Uri;
 import android.support.v7.app.ActionBar;
@@ -27,8 +26,6 @@ import com.intellisense.review.db_classes.Response;
 import com.intellisense.review.db_classes.Review;
 import com.intellisense.review.db_classes.Review_Questions;
 import com.intellisense.review.db_classes.Server;
-
-import org.w3c.dom.Text;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -257,7 +254,7 @@ public class DetailReviewActivity extends AppCompatActivity {
         waiterNameTextView.setText(server.getServer_name());
 
 
-        String contact = currentReview.getCustomer_contact_no();
+        String contact = currentReview.getCustomer_contact ();
         String email = currentReview.getCustomer_email();
         String birthday = currentReview.getCustomer_birthday();
         String anniversary = currentReview.getCustomer_anniversary();
@@ -267,7 +264,7 @@ public class DetailReviewActivity extends AppCompatActivity {
         {
             if(contact!=null && contact.length()!=0)
             {
-                contactTextView.setText(currentReview.getCustomer_contact_no());
+                contactTextView.setText(currentReview.getCustomer_contact ());
             }
             else
             {
@@ -346,7 +343,7 @@ public class DetailReviewActivity extends AppCompatActivity {
     public void callPerson()
     {
         Intent callIntent = new Intent(Intent.ACTION_DIAL);
-        callIntent.setData(Uri.parse("tel:" + currentReview.getCustomer_contact_no()));
+        callIntent.setData(Uri.parse("tel:" + currentReview.getCustomer_contact ()));
         if (callIntent.resolveActivity(getPackageManager()) != null) {
             startActivity(callIntent);
         }

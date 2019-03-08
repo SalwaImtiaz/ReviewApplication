@@ -9,6 +9,7 @@ import android.content.Context;
 import android.util.Log;
 
 import com.intellisense.review.daos.AdminDao;
+import com.intellisense.review.daos.CompanyDao;
 import com.intellisense.review.daos.ItemsDao;
 import com.intellisense.review.daos.QuestionsDao;
 import com.intellisense.review.daos.ResponseDao;
@@ -25,14 +26,14 @@ import java.io.OutputStream;
  * Created by user on 12/1/2018.
  */
 
-@Database(entities = {Admin.class,Review.class,Server.class,Review_Questions.class,Response.class,Items_Served.class}, version = 1, exportSchema = false)
+@Database(entities = {Admin.class,Review.class,Server.class,Review_Questions.class,Response.class,Items_Served.class,Company.class}, version = 1, exportSchema = false)
 @TypeConverters(DateConverter.class)
 public abstract class AppDatabase extends RoomDatabase{
 
     private static final String LOG_TAG = AppDatabase.class.getSimpleName();
     private static final Object LOCK = new Object();
-    private static final String DATABASE_NAME = "review_db";
-   // private final static String DATABASE_PATH = "/data/data/com.intellisense.review/databases/";
+    private static final String DATABASE_NAME = "review_db2";
+//    private final static String DATABASE_PATH = "/data/data/com.intellisense.review/databases/";
     private static AppDatabase sInstance;
 
     public static AppDatabase getInstance(Context context)
@@ -97,4 +98,6 @@ public abstract class AppDatabase extends RoomDatabase{
     public abstract ReviewDao reviewDao();
 
     public abstract ServerDao serverDao();
+
+    public abstract CompanyDao companyDao();
 }

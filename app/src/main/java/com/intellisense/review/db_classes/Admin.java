@@ -6,6 +6,8 @@ import android.arch.persistence.room.PrimaryKey;
 import android.support.v4.media.MediaBrowserCompat;
 import android.widget.AdapterView;
 
+import java.util.Date;
+
 /**
  * Created by user on 11/30/2018.
  */
@@ -31,25 +33,38 @@ public class Admin {
 
     private String password;
 
+    private int company_id;
+
+    private int active;
+
+    private Date entry_time;
+
+
     // Integer to represent whether the admin is normal or super
     private int type;
 
-    public Admin(int admin_id, String user_name, String email, String password, int type)
+    public Admin(int admin_id, String user_name, String email, String password, int type,int company_id,int active,Date entry_time)
     {
         this.admin_id = admin_id;
         this.user_name = user_name;
         this.email = email;
         this.password = password;
         this.type = type;
+        this.company_id = company_id;
+        this.active = active;
+        this.entry_time = entry_time;
     }
 
     @Ignore
-    public Admin(String user_name, String email, String password, int type)
+    public Admin(String user_name, String email, String password, int type, int company_id, int active, Date entry_time)
     {
         this.user_name = user_name;
         this.email = email;
         this.password = password;
         this.type = type;
+        this.company_id = company_id;
+        this.active = active;
+        this.entry_time = entry_time;
     }
 
     public int getAdmin_id() {
@@ -86,6 +101,30 @@ public class Admin {
 
     public int getType() {
         return type;
+    }
+
+    public int getCompany_id() {
+        return company_id;
+    }
+
+    public void setCompany_id(int company_id) {
+        this.company_id = company_id;
+    }
+
+    public int getActive() {
+        return active;
+    }
+
+    public void setActive(int active) {
+        this.active = active;
+    }
+
+    public Date getEntry_time() {
+        return entry_time;
+    }
+
+    public void setEntry_time(Date entry_time) {
+        this.entry_time = entry_time;
     }
 
     public void setType(int type) {

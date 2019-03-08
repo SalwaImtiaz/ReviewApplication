@@ -3,8 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://D:\salwa\Intellisense_Internship\ReviewingApp Backup\maryamnasir\maryamnasir555-review-af1c0c23bd9e\Review.iml" filepath="D:\salwa\Intellisense_Internship\ReviewingApp Backup\maryamnasir\maryamnasir555-review-af1c0c23bd9e\Review.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ReviewApp.iml" filepath="$PROJECT_DIR$/ReviewApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/maryamnasir555-review-af1c0c23bd9e.iml" filepath="$PROJECT_DIR$/maryamnasir555-review-af1c0c23bd9e.iml" />
     </modules>
   </component>
 </project>
